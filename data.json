@@ -1,0 +1,79 @@
+{
+  "classes": {
+    "1": "Warrior",
+    "2": "Paladin",
+    "3": "Hunter",
+    "4": "Rogue",
+    "5": "Priest",
+    "6": "Death Knight",
+    "7": "Shaman",
+    "8": "Mage",
+    "9": "Warlock",
+    "10": "Monk",
+    "11": "Druid",
+    "12": "Demon Hunter"
+  },
+
+  "races": {
+    "1": {
+      "side": "Alliance",
+      "race": "Human"
+    },
+    "2": {
+      "side": "Horde",
+      "race": "Orc"
+    },
+    "3": {
+      "side": "Alliance",
+      "race": "Dwarf"
+    },
+    "4": {
+      "side": "Alliance",
+      "race": "Night Elf"
+    },
+    "5": {
+      "side": "Horde",
+      "race": "Undead"
+    },
+    "6": {
+      "side": "Horde",
+      "race": "Tauren"
+    },
+    "7": {
+      "side": "Alliance",
+      "race": "Gnome"
+    },
+    "8": {
+      "side": "Horde",
+      "race": "Troll"
+    },
+    "9": {
+      "side": "Horde",
+      "race": "Goblin"
+    },
+    "10": {
+      "side": "Horde",
+      "race": "Blood Elf"
+    },
+    "11": {
+      "side": "Alliance",
+      "race": "Draenei"
+    },
+    "22": {
+      "side": "Alliance",
+      "race": "Worgen"
+    },
+    "24": {
+      "side": "neutral",
+      "race": "Pandaren"
+    },
+    "25": {
+      "side": "Alliance",
+      "race": "Pandaren"
+    },
+    "26": {
+      "side": "Horde",
+      "race": "Pandaren"
+    }
+  }
+}

@@ -12,83 +12,15 @@ var wowFinder = function(context, cb){
   // I queried both the CLASSES and RACES data already from the battle.net api so as to not have 3 API requests.
   // Since it is unlikely these will change often, it makes more sense to store them than to waste
   // time and resources making additional api calls.
-  var CLASSES = {
-    1: 'Warrior',
-    2: 'Paladin',
-    3: 'Hunter',
-    4: 'Rogue',
-    5: 'Priest',
-    6: 'Death Knight',
-    7: 'Shaman',
-    8: 'Mage',
-    9: 'Warlock',
-    10: 'Monk',
-    11: 'Druid',
-    12: 'Demon Hunter'
-  };
-
-  var RACES = {
-    1: {
-      side: "Alliance",
-      race: "Human"
-    },
-    2: {
-      side: "Horde",
-      race: "Orc"
-    },
-    3: {
-      side: "Alliance",
-      race: "Dwarf"
-    },
-    4: {
-      side: "Alliance",
-      race: "Night Elf"
-    },
-    5: {
-      side: "Horde",
-      race: "Undead"
-    },
-    6: {
-      side: "Horde",
-      race: "Tauren"
-    },
-    7: {
-      side: "Alliance",
-      race: "Gnome"
-    },
-    8: {
-      side: "Horde",
-      race: "Troll"
-    },
-    9: {
-      side: "Horde",
-      race: "Goblin"
-    },
-    10: {
-      side: "Horde",
-      race: "Blood Elf"
-    },
-    11: {
-      side: "Alliance",
-      race: "Draenei"
-    },
-    22: {
-      side: "Alliance",
-      race: "Worgen"
-    },
-    24: {
-      side: "Neutral",
-      race: "Pandaren"
-    },
-    25: {
-      side: "Alliance",
-      race: "Pandaren"
-    },
-    26: {
-      side: "Horde",
-      race: "Pandaren"
+  context.storage.get(function(err, data){
+    if(err){
+      cb(null, 'wowFinder error. Could not access class and race data.');
+      return;
+    } else {
+      CLASSES = data.classes;
+      RACES = data.races;
     }
-  };
+  });
 
 
   // As this is designed to be a Slack webhook, it is expecting the body.text parameters.
@@ -109,12 +41,14 @@ var wowFinder = function(context, cb){
   }
 
 
-  // Builds the url for the API request
   url = API_URL
     + SERVER
-    + '/' + CHARACTER
-    + '?locale=' + LOCALE
-    + '&apikey=' + API_KEY;
+    + '/'
+    + CHARACTER
+    + '?locale='
+    + LOCALE
+    + '&apikey='
+    + API_KEY;
 
 
   request.get(url, {}, function(err, res, body){
